@@ -13,8 +13,21 @@
     client.onConnectionLost = function (responseObject) {
       console.log("connection lost: " + responseObject.errorMessage);
     };
+    var doc = {};
     client.onMessageArrived = function (message) {
       console.log(message.destinationName, ' -- ', message.payloadString);
+      // var obj = JSON.parse(message.payloadString);
+      // if (obj.d) {
+      //   if (doc[obj.d.myName] === undefined) {
+      //       doc[obj.d.myName] = {
+      //           temperature: ""
+      //       };
+      //   }
+      //   doc[obj.d.myName].temperature = obj.d.temperature;
+      //   sessionStorage.data[obj.d.myName].temperature = obj.d.temperature;
+      //   console.log(doc);
+      // }
+      
     };
     var options = {
       timeout: 3,
@@ -24,9 +37,9 @@
         client.subscribe('/CAMT/#', {qos: 1});
     
         // //use the below if you want to publish to a topic on connect
-        // message = new Paho.MQTT.Message("Hello");
-        // message.destinationName = "/World";
-        // client.send(message);
+        message = new Paho.MQTT.Message("Hello");
+        message.destinationName = "/CAMT/1";
+        client.send(message);
   
       },
       onFailure: function (message) {

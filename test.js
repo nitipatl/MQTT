@@ -1,14 +1,18 @@
 var mqtt = require('mqtt')
-var client  = mqtt.connect('mqtt://test.mosquitto.org')
+var client  = mqtt.connect('tcp://46.101.48.109:1883', {
+  clientId: 'taey'
+})
 
 client.on('connect', function () {
-  client.subscribe('presence')
+  client.subscribe("/CAMT/#")
   setInterval(() => {
-    client.publish('presence', 'Hello mqtt' + (Math.floor(Date.now() / 1000)))
+    client.publish("/CAMT/123456", 'Hello mqtt' + (Math.floor(Date.now() / 1000)))
   }, 1000)
   
 })
-
+client.on('error', function (e) {
+  console.log('Error! ' + e)
+})
 client.on('message', function (topic, message) {
   // message is Buffer
   console.log('Recieved: ' + message.toString())
