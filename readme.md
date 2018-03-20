@@ -12,3 +12,6 @@
 
 - Publish and subscribe from server side  
 `node test.js`
+
+### Macbook's USB missing problem
+https://bennthomsen.wordpress.com/iot/iot-things/esp8266-wifi-soc/esp8266-getting-started-with-arduino-ide/
