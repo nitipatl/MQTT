@@ -4,9 +4,9 @@ var client  = mqtt.connect('tcp://46.101.48.109:1883', {
 })
 
 client.on('connect', function () {
-  client.subscribe("/CAMT/#")
+  client.subscribe("CAMT/#")
   setInterval(() => {
-    client.publish("/CAMT/123456", 'Hello mqtt' + (Math.floor(Date.now() / 1000)))
+    client.publish("CAMT/LATTE-005", 'Hello mqtt' + (Math.floor(Date.now() / 1000)))
   }, 1000)
   
 })
