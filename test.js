@@ -5,9 +5,9 @@ var client  = mqtt.connect('tcp://46.101.48.109:1883', {
 
 client.on('connect', function () {
   client.subscribe("CAMT/#")
-  setInterval(() => {
-    client.publish("CAMT/LATTE-005", 'Hello mqtt' + (Math.floor(Date.now() / 1000)))
-  }, 1000)
+  // setInterval(() => {
+  //   client.publish("CAMT/LATTE-005", 'Hello mqtt' + (Math.floor(Date.now() / 1000)))
+  // }, 1000)
   
 })
 client.on('error', function (e) {
