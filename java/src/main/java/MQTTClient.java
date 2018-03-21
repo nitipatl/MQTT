@@ -24,7 +24,7 @@ public class MQTTClient implements MqttCallback {
             client.connect();
             System.out.println("Connected");
             client.setCallback(this);
-            client.subscribe("CAMT/#");
+            client.subscribe("KKU/#");
             try {
                 System.in.read();
             } catch (IOException e) {
