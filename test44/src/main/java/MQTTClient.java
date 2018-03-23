@@ -35,7 +35,7 @@ public class MQTTClient implements MqttCallback {
             System.exit(0);
 
         } catch (MqttException e) {
-
+            System.out.println(e);
         }
     }
 
@@ -66,3 +66,4 @@ public class MQTTClient implements MqttCallback {
     }
 
 }
+
