@@ -6,7 +6,7 @@ echo "\n mqtt starting..";
   
 $host = "46.101.48.109";
 $port = 1883;
-$clientName = "taey";
+$clientName = "taey2";
 $mqtt = new phpMQTT($host, $port, $clientName);
 
 echo "\n mqtt created..";
@@ -18,7 +18,7 @@ if(!$mqtt->connect()){
 
 $topics['KKU/#'] = array("qos"=>0, "function"=>"receiveMessage");
 
-$mqtt->subscribe($topics,0);
+$mqtt->subscribe($topics);
 
 echo "\n mqtt Subscribed..";
 
